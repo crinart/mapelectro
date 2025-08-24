@@ -345,7 +345,7 @@ export default function ElectroMapMVP() {
           width="100%"
           height="calc(100% - 56px)"
           onClick={onMapClick}
-          modules={["control.ZoomControl", "geolocation"]}
+          modules={["control.ZoomControl", "geolocation", "geoObject.addon.hint"]}
           options={{ suppressMapOpenBlock: true }}
         >
           {filteredNodes.map((n) => (
@@ -360,17 +360,33 @@ export default function ElectroMapMVP() {
             const from = nodes.find((n) => n.id === l.from);
             const to = nodes.find((n) => n.id === l.to);
             if (!from || !to) return null;
+            const midLat = (from.lat + to.lat) / 2;
+            const midLon = (from.lon + to.lon) / 2;
             return (
-              <Polyline
-                key={l.id}
-                geometry={
-                  [
+              <React.Fragment key={l.id}>
+                <Polyline
+                  geometry={[
                     [from.lat, from.lon],
                     [to.lat, to.lon],
-                  ]
-                }
-                options={{ strokeColor: statusColors[l.status], strokeWidth: 3 }}
-              />
+                  ]}
+                  options={{
+                    strokeColor: statusColors[l.status],
+                    strokeWidth: 3,
+                  }}
+                  properties={{ hintContent: l.name }}
+                />
+                <Placemark
+                  geometry={[midLat, midLon]}
+                  properties={{ iconCaption: l.name }}
+                  options={{
+                    iconLayout: "default#image",
+                    iconImageHref:
+                      "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+                    iconImageSize: [1, 1],
+                    iconImageOffset: [0, 0],
+                  }}
+                />
+              </React.Fragment>
             );
           })}
         </Map>
