@@ -4,7 +4,15 @@ import { cn } from "@/lib/utils";
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 function Card({ className, ...props }: CardProps) {
-  return <div className={cn("rounded-lg border bg-white p-6", className)} {...props} />;
+  return (
+    <div
+      className={cn(
+        "rounded-lg border bg-neutral-900 p-6 text-white",
+        className
+      )}
+      {...props}
+    />
+  );
 }
 
 function CardHeader({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
