@@ -1,3 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-  <path d="M12 2 L6 22 H18 L12 2 Z" fill="#000"/>
+<svg width="24" height="24" viewBox="0 0 24 24"
+     xmlns="http://www.w3.org/2000/svg" aria-labelledby="title"
+     fill="none">
+  <title>Power Transmission Tower (ЛЭП)</title>
+  <g stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- crossarm -->
+    <line x1="5" y1="7" x2="19" y2="7"/>
+    <!-- insulator stubs -->
+    <line x1="8" y1="7" x2="8" y2="9"/>
+    <line x1="12" y1="7" x2="12" y2="9"/>
+    <line x1="16" y1="7" x2="16" y2="9"/>
+    <!-- conductors (left/right with slight sag) -->
+    <path d="M2 9 Q5 12 8 9"/>
+    <path d="M16 9 Q19 12 22 9"/>
+
+    <!-- tower legs & base -->
+    <line x1="12" y1="4" x2="6"  y2="20"/>
+    <line x1="12" y1="4" x2="18" y2="20"/>
+    <line x1="6"  y1="20" x2="18" y2="20"/>
+
+    <!-- lattice braces -->
+    <line x1="9.5" y1="12" x2="14.5" y2="12"/>
+    <line x1="8"   y1="16" x2="16"   y2="16"/>
+    <line x1="6"   y1="20" x2="14.5" y2="12"/>
+    <line x1="18"  y1="20" x2="9.5"  y2="12"/>
+    <line x1="8"   y1="16" x2="14.5" y2="12"/>
+    <line x1="16"  y1="16" x2="9.5"  y2="12"/>
+  </g>
 </svg>
