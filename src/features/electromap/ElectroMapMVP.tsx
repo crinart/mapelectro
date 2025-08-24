@@ -16,6 +16,12 @@ const statusColors: Record<StatusType, string> = {
   accident: "#ef4444",
 };
 
+const nodeIcons: Record<NodeType, string> = {
+  support: "/icons/support.svg",
+  tp: "/icons/tp.svg",
+  rp: "/icons/rp.svg",
+};
+
 type StatusType = "working" | "maintenance" | "accident";
 type NodeType = "support" | "tp" | "rp";
 type LineType = "lep" | "kl";
@@ -352,7 +358,12 @@ export default function ElectroMapMVP() {
             <Placemark
               key={n.id}
               geometry={[n.lat, n.lon]}
-              options={{ iconColor: statusColors[n.status] }}
+              options={{
+                iconLayout: "default#image",
+                iconImageHref: nodeIcons[n.nodeType],
+                iconColor: statusColors[n.status],
+                isMask: true,
+              }}
               onClick={() => handlePlacemarkClick(n)}
             />
           ))}
