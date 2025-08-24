@@ -352,7 +352,7 @@ export default function ElectroMapMVP() {
             <Placemark
               key={n.id}
               geometry={[n.lat, n.lon]}
-              options={{ iconColor: statusColors[n.status] }}
+              options={{ iconColor: statusColors[n.status], isMask: true }}
               onClick={() => handlePlacemarkClick(n)}
             />
           ))}
